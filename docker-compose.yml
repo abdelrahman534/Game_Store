@@ -1,0 +1,24 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"  # Expose SQL Server on port 1433
+    networks:
+      - app_network
+
+  api:
+    build: .
+    depends_on:
+      - sqlserver
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=GameStore;Integrated Security=True;
+    ports:
+      - "8080:80" 
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

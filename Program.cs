@@ -27,6 +27,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapControllers();
-app.MapGamesEndpoints();
+
 
 app.Run();

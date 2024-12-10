@@ -5,7 +5,7 @@
 namespace GameStore.Migrations
 {
     /// <inheritdoc />
-    public partial class FourthCreate : Migration
+    public partial class SecondCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
