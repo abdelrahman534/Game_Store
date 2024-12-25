@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building the .NET application...'
-                    sh 'dotnet build YourApiProjectName.sln'
+                    sh 'dotnet build GameStore.sln'
                 }
             }
         }
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building Docker image...'
-                    sh 'docker build -t your-api-image-name .'
+                    sh 'docker build -t gamestore .'
                 }
             }
         }
