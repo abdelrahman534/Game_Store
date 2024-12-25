@@ -7,8 +7,6 @@ public class GameStoreContext:DbContext
         {
             
         }
-    public DbSet<Game> Games => Set<Game>();
     public DbSet<VideoGame> VideoGame => Set<VideoGame>();
-    public DbSet<Genre> Genres => Set<Genre>();
 
 }
