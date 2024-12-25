@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    echo 'Building the .NET application...'
+                    sh 'dotnet build YourApiProjectName.sln'
+                }
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                script {
+                    echo 'Building Docker image...'
+                    sh 'docker build -t your-api-image-name .'
+                }
+            }
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                script {
+                    echo 'Deploying to Staging using Docker Compose...'
+                    sh 'docker-compose up --build -d'
+                }
+            }
+        }
+    }
+}
